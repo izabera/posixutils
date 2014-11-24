@@ -12,11 +12,7 @@ Comparison (may not be up to date)
 
 Compare the sizes in bytes vs GNU's version from Arch Linux packages:
 
-|        | Smallutils |  GNU  |
-|:------:|:----------:|:-----:|
-| `echo` |    5216    | 30436 |
-| `cat`  |    3812    | 51044 |
-| `rev`  |    3812    | 51044 |
+NOT NOW
 
 
 Moar to come...
