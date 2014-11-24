@@ -6,8 +6,14 @@ starting from userspace utilities.
 
 `bin/` contains i686 binaries, run `make` to compile for your architecture.
 
-- `echo` == 4484 bytes  (Arch's `/bin/echo` == 30436 bytes)
-- Moar to come...
+Here's a comparison (sizes in bytes, from Arch Linux packages):
+
+|        | Smallutils |  GNU  |
+|:------:|:----------:|:-----:|
+| `echo` |    5216    | 30436 |
+| `cat`  |    3812    | 51044 |
+
+Moar to come...
 
 Released under the ISC License, shortest BSD thingy I could find.
 
