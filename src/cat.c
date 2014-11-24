@@ -30,7 +30,7 @@ int main (int argc, char ** argv) {
   else {
     while (getline(&line, &len, stdin) != -1) fputs(line, stdout);
   }
-  free(line);
+  /*free(line);*/
   return ret;
 }
 
