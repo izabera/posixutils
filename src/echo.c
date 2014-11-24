@@ -58,7 +58,7 @@ char * octhex (char * str) {
   char * newstr = NULL;
   char tmpstr[3];
   char a, b, c, tot = 0;
-  int amount;
+  int amount = 0;
   newstr = strdup (str);
   int i;
   for (i = 0; newstr[i]; i++)
