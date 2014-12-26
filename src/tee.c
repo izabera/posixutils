@@ -13,7 +13,7 @@
 int main (int argc, char **argv) {
   FILE *output[argc];
   int i, exitcode = 0, opt;
-  bool append = false, ignoresigint = false;
+  bool append = false;
 
   while ((opt = getopt(argc, argv, "ai")) != -1) {
     switch (opt) {
