@@ -132,7 +132,7 @@ all:
 	#$(CC) $(CFLAGS) -o bin/set src/set.c
 	#$(CC) $(CFLAGS) -o bin/sh src/sh.c
 	#$(CC) $(CFLAGS) -o bin/shift src/shift.c
-	#$(CC) $(CFLAGS) -o bin/sleep src/sleep.c
+	$(CC) $(CFLAGS) -o bin/sleep src/sleep.c
 	#$(CC) $(CFLAGS) -o bin/sort src/sort.c
 	#$(CC) $(CFLAGS) -o bin/split src/split.c
 	#$(CC) $(CFLAGS) -o bin/strings src/strings.c
