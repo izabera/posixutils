@@ -7,7 +7,15 @@ void quit() { exit(EXIT_SUCCESS); }
 
 int main (int argc, char *argv[]) {
   unsigned int num;
-  if (argc != 2) {
+  int opt;
+  while ((opt = getopt(argc, argv, "")) != -1) {
+    switch (opt) {
+      default:
+        fprintf(stderr, "Usage: %s time\n", argv[0]);
+        exit(EXIT_FAILURE);
+    }
+  }
+  if (argc - optind > 1) {
     fprintf(stderr, "Usage: %s time\n", argv[0]);
     exit(EXIT_FAILURE);
   }
