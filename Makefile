@@ -67,7 +67,7 @@ all:
 	#$(CC) $(CFLAGS) -o bin/getopts src/getopts.c
 	#$(CC) $(CFLAGS) -o bin/grep src/grep.c
 	#$(CC) $(CFLAGS) -o bin/hash src/hash.c
-	#$(CC) $(CFLAGS) -o bin/head src/head.c
+	$(CC) $(CFLAGS) -o bin/head src/head.c
 	#$(CC) $(CFLAGS) -o bin/iconv src/iconv.c
 	#$(CC) $(CFLAGS) -o bin/id src/id.c
 	#$(CC) $(CFLAGS) -o bin/ipcrm src/ipcrm.c

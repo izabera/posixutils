@@ -34,6 +34,11 @@ int main (int argc, char ** argv) {
   for (i = optind; i < argc; i++) {
     if (strcmp(argv[i], "-") == 0) file = stdin;
     else file = fopen(argv[i], "r");
+    if (!file) {
+      fprintf(stderr, "Error: couldn't open %s\n", argv[i]);
+      exitcode = 1;
+      continue;
+    }
     if (usebuffer) {
       while (1) {
         numbytes = fread(buffer, sizeof(unsigned char), BUFFER_SIZE, file);
