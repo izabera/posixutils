@@ -8,8 +8,6 @@
 
 /* tee */
 
-/* any option that's not -a or -i is treated as files */
-
 int main (int argc, char **argv) {
   FILE *output[argc];
   int i, exitcode = 0, opt;
@@ -37,7 +35,7 @@ int main (int argc, char **argv) {
     }
     else {
       fprintf(stderr, "ERROR: %s\n", strerror(errno));
-      exitcode = 1;
+      exitcode = EXIT_FAILURE;
     }
   }
 

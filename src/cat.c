@@ -1,52 +1,52 @@
 #include <stdio.h>
+#include <string.h>
 #include <stdlib.h>
-/*#include "getline.h"*/
+#include <unistd.h>
+#include <stdbool.h>
+/* cat */
 
 int main (int argc, char ** argv) {
   FILE * file;
-  int i, ret = 0;
-  char c;
-  if (argc > 1) {
-    for (i = 1; i < argc; i++) {
-      if (argv[i][0] != '-' && argv[i][1] != 0) {
-        file = fopen(argv[i], "r");
-        if (!file) {
-          /*fputs("Failed to open file: ", stderr);*/
-          fputs("Can't open file: ", stderr);
-          fputs(argv[i], stderr);
-          /*fputs("\n", stderr);*/
-          ret = 1;
-        }
-        else {
-          c = fgetc(file);
-          while (c != EOF) {
-            /*putchar(c);*/
-            /*fputc(c, stdout);*/
-            putc(c, stdout);
-            c = fgetc(file);
-          }
-          fclose(file);
-        }
-      }
-      else
-        c = fgetc(stdin);
-      while (c != EOF) {
-        /*putchar(c);*/
-        /*fputc(c, stdout);*/
-        putc(c, stdout);
-        c = fgetc(stdin);
-      }
-    }
-  }
-  else {
-    c = fgetc(stdin);
-    while (c != EOF) {
-      /*putchar(c);*/
-      /*fputc(c, stdout);*/
-      putc(c, stdout);
-      c = fgetc(stdin);
-    }
-  }
-  return ret;
-}
+  int i, exitcode = 0, opt;
+  bool usebuffer = true;
 
+  while ((opt = getopt(argc, argv, "u")) != -1) {
+    switch (opt) {
+      case 'u':
+        usebuffer = false;
+        break;
+      default:
+        fprintf(stderr, "Usage: %s [−ai] [file...]\n", argv[0]);
+        exit(EXIT_FAILURE);
+    }
+  }
+
+#ifndef BUFFER_SIZE
+#define BUFFER_SIZE 4096
+#endif
+  char buffer[BUFFER_SIZE];
+  size_t numbytes;
+
+  if (optind == argc) {
+    optind--;
+    strcpy(argv[optind], "-");
+  }
+  for (i = optind; i < argc; i++) {
+    if (strcmp(argv[i], "-") == 0) file = stdin;
+    else file = fopen(argv[i], "r");
+    if (usebuffer) {
+      while (1) {
+        numbytes = fread(buffer, sizeof(unsigned char), BUFFER_SIZE, file);
+        fwrite(buffer, sizeof(unsigned char), numbytes, stdout);
+        if (numbytes < BUFFER_SIZE) break;
+      }
+    }
+    else {
+      int c;
+      while ((c = getc(file)) != EOF)
+        putchar(c);
+    }
+    if (strcmp(argv[i], "-") != 0) fclose(file);
+  }
+  return exitcode;
+}
