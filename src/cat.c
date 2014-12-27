@@ -35,7 +35,7 @@ int main (int argc, char ** argv) {
     if (strcmp(argv[i], "-") == 0) file = stdin;
     else file = fopen(argv[i], "r");
     if (!file) {
-      fprintf(stderr, "Error: couldn't open %s\n", argv[i]);
+      fprintf(stderr, "%s: couldn't open %s\n", argv[0], argv[i]);
       exitcode = 1;
       continue;
     }
