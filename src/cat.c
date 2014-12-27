@@ -16,7 +16,7 @@ int main (int argc, char ** argv) {
         usebuffer = false;
         break;
       default:
-        fprintf(stderr, "Usage: %s [−ai] [file...]\n", argv[0]);
+        fprintf(stderr, "Usage: %s [−u] [file...]\n", argv[0]);
         exit(EXIT_FAILURE);
     }
   }
