@@ -28,10 +28,14 @@ int main (int argc, char **argv) {
 #endif
   char buffer[BUFFER_SIZE];
   size_t numbytes;
+  bool multiple;
 
   if (optind == argc) {
     optind--;
     strcpy(argv[optind], "-");
+  }
+  else if (optind > argc - 1) {
+    multiple = true;
   }
   for (i = optind; i < argc; i++) {
     if (strcmp(argv[i], "-") == 0) file = stdin;
@@ -40,6 +44,10 @@ int main (int argc, char **argv) {
       fprintf(stderr, "%s: couldn't open %s\n", argv[0], argv[i]);
       exitcode = 1;
       continue;
+    }
+    if (multiple) {
+      if (i == optind) printf("==> %s <==\n", argv[i]);
+      else printf("\n==> %s <==\n", argv[i]);
     }
     for (newlinescount = 0; newlinescount < numlines;) {
       numbytes = fread(buffer, sizeof(unsigned char), BUFFER_SIZE, file);
