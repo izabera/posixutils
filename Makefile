@@ -43,7 +43,7 @@ all:
 	$(CC) $(CFLAGS) -o bin/dirname src/dirname.c
 	#$(CC) $(CFLAGS) -o bin/dot src/dot.c
 	#$(CC) $(CFLAGS) -o bin/du src/du.c
-	#$(CC) $(CFLAGS) -o bin/echo src/echo.c
+	$(CC) $(CFLAGS) -o bin/echo src/echo.c
 	#$(CC) $(CFLAGS) -o bin/ed src/ed.c
 	#$(CC) $(CFLAGS) -o bin/env src/env.c
 	#$(CC) $(CFLAGS) -o bin/eval src/eval.c
