@@ -5,12 +5,13 @@
 #include <unistd.h>
 #include <signal.h>
 #include <errno.h>
+#include <getopt.h>
 
 /* head */
 
 int main (int argc, char **argv) {
   FILE *file;
-  int i, numlines = 10, newlinescount, tmpcount, exitcode = 0, opt;
+  int i, numlines = 10, newlinescount, exitcode = 0, opt;
 
   while ((opt = getopt(argc, argv, "n:")) != -1) {
     switch (opt) {
@@ -27,7 +28,7 @@ int main (int argc, char **argv) {
 #define BUFFER_SIZE 4096
 #endif
   char buffer[BUFFER_SIZE];
-  size_t numbytes;
+  size_t numbytes, tmpcount;
   bool multiple;
 
   if (optind == argc) {

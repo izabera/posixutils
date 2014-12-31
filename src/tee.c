@@ -5,6 +5,7 @@
 #include <unistd.h>
 #include <signal.h>
 #include <errno.h>
+#include <getopt.h>
 
 /* tee */
 
