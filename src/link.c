@@ -3,6 +3,7 @@
 #include <errno.h>
 #include <stdio.h>
 #include <getopt.h>
+#include <string.h>
 
 /* link */
 
@@ -22,7 +23,10 @@ int main (int argc, char *argv[]) {
   }
 
   ret = link(argv[1], argv[2]);
-  if (ret != 0) printf("Error\n");
+  if (ret != 0) {
+    fprintf(stderr, "%s: Error %d: %s\n", argv[0], errno, strerror(errno));
+    exit(EXIT_FAILURE);
+  }
   return ret;
 }
 
