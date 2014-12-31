@@ -76,7 +76,7 @@ all:
 	#$(CC) $(CFLAGS) -o bin/join src/join.c
 	#$(CC) $(CFLAGS) -o bin/kill src/kill.c
 	#$(CC) $(CFLAGS) -o bin/lex src/lex.c
-	#$(CC) $(CFLAGS) -o bin/link src/link.c
+	$(CC) $(CFLAGS) -o bin/link src/link.c
 	#$(CC) $(CFLAGS) -o bin/ln src/ln.c
 	#$(CC) $(CFLAGS) -o bin/locale src/locale.c
 	#$(CC) $(CFLAGS) -o bin/localedef src/localedef.c
