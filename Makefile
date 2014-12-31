@@ -15,7 +15,7 @@ all:
 	#$(CC) $(CFLAGS) -o bin/bg src/bg.c
 	#$(CC) $(CFLAGS) -o bin/break src/break.c
 	#$(CC) $(CFLAGS) -o bin/c99 src/c99.c
-	#$(CC) $(CFLAGS) -o bin/cal src/cal.c
+	$(CC) $(CFLAGS) -o bin/cal src/cal.c
 	$(CC) $(CFLAGS) -o bin/cat src/cat.c
 	#$(CC) $(CFLAGS) -o bin/cd src/cd.c
 	#$(CC) $(CFLAGS) -o bin/cflow src/cflow.c
