@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -Wall -O2 -march=native
+CFLAGS = -std=c99 -Wall -pedantic -Wextra -O2 -march=native
 
 all:
 	mkdir -p bin

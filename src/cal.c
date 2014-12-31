@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include <stdbool.h>
+#include <getopt.h>
 /* cal */
 
 /* TODO:
@@ -11,10 +12,10 @@
 
 void printheader (struct tm *time, bool printyear) {
   char buffer[22], spaces[10];
-  int i;
-  size_t output;
+  size_t i, output;
   if (printyear) output = strftime(buffer, 80, "%B %Y", time);
   else output = strftime(buffer, 80, "%B", time);
+  for (i = 0; i < (21-output)/2; i++) spaces[i] = ' ';
   spaces[i] = 0;
   printf("%s%s\n", spaces, buffer);
 }
@@ -34,9 +35,9 @@ int dow (int y, int m, int d) {
           for (i = 0; i < 6; i++) {                                           \
             for (j = 0; j < 6; j++)                                           \
               if (array[i*7+j] != 0) printf("%2d ", array[i*7+j]);            \
-              else printf("   ", array[i*7+j]);                               \
+              else printf("   ");                                             \
             if (array[i*7+j] != 0) printf("%2d\n", array[i*7+j]);             \
-            else printf("  \n", array[i*7+j]);                                \
+            else printf("  \n");                                              \
           }                                                                   \
         }
 

@@ -2,6 +2,9 @@
 #include <unistd.h>
 #include <signal.h>
 #include <stdio.h>
+#include <getopt.h>
+
+/* sleep */
 
 void quit() { exit(EXIT_SUCCESS); }
 

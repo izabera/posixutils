@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <stdbool.h>
+#include <getopt.h>
 /* cat */
 
 int main (int argc, char ** argv) {
