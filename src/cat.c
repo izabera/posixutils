@@ -4,6 +4,7 @@
 #include <unistd.h>
 #include <stdbool.h>
 #include <getopt.h>
+#include <errno.h>
 /* cat */
 
 int main (int argc, char ** argv) {
@@ -36,7 +37,7 @@ int main (int argc, char ** argv) {
     if (strcmp(argv[i], "-") == 0) file = stdin;
     else file = fopen(argv[i], "r");
     if (!file) {
-      fprintf(stderr, "%s: couldn't open %s\n", argv[0], argv[i]);
+      fprintf(stderr, "%s: Error %d: %s\n", argv[0], errno, strerror(errno));
       exitcode = 1;
       continue;
     }
