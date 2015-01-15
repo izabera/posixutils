@@ -1,17 +1,14 @@
 #include <stdio.h>
-#include <string.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include <getopt.h>
-/* basename */
-
-/* // -> / */
+#include <libgen.h>
+/* dirname */
 
 int main (int argc, char *argv[]) {
   /* exit if we get any option 
    * required because 'basename -- path' must produce a filename */
-  int opt, len;
-  char *dirname;
+  int opt;
   while ((opt = getopt(argc, argv, "")) != -1) {
     switch (opt) {
       default:
@@ -25,29 +22,6 @@ int main (int argc, char *argv[]) {
     exit(EXIT_FAILURE);
   }
 
-  /* remove trailing /'s */
-  len = strlen(argv[optind]);
-  while (len > 1) {
-    if (len - 1 == (int)(strrchr(argv[optind], '/') - argv[optind]))
-      argv[optind][--len] = 0;
-    else break;
-  }
-
-  /* remove everything from the last / */
-  dirname = strrchr(argv[optind], '/');
-  if (dirname != NULL && len > 1)
-    argv[optind][len-strlen(dirname)] = 0;
-  dirname = argv[optind];
-
-  /* remove trailing /'s again */
-  len = strlen(dirname);
-  while (len > 1) {
-    if (len - 1 == (int)(strrchr(dirname, '/') - dirname))
-      dirname[--len] = 0;
-    else break;
-  }
-
-  printf("%s\n", dirname);
+  printf("%s\n", dirname(argv[optind]));
   return 0;
 }
-
