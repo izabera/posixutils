@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# fix files that miss their gpl
+# just assume that such files don't contain the word GNU
+for file in ../src/*; do
+  if ! grep -q GNU "$file"; then
+    cat gplhead "$file" > "$file.gpl"
+    sed "2s/name/${file##*/}/" "$file.gpl" > "$file"
+  fi
+done
+rm -f ../src/*.gpl

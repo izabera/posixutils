@@ -1,0 +1,12 @@
+Roadmap for PosixUtils
+
+v 1.0: fully functional userland
+
+Major steps:
+- shell
+- c99
+- fort77
+- awk
+- sed
+- vi + ed + ex
+- lex + yacc

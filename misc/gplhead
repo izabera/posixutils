@@ -1,5 +1,5 @@
 /*
- *  true.c
+ *  name
  *  This file is part of posixutils.
  *
  *  Copyright (C) 2015 izabera
@@ -18,7 +18,3 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-/* true */
-int main () {
-  return 0;
-}
