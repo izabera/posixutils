@@ -20,6 +20,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <unistd.h>
 #include <getopt.h>
 #include <libgen.h>
@@ -42,6 +43,14 @@ int main (int argc, char *argv[]) {
     exit(EXIT_FAILURE);
   }
 
-  printf("%s\n", basename(argv[optind]));
+  char *base = basename(argv[optind]), *suffix;
+  suffix = (char *)malloc(strlen(base));
+  memcpy(suffix, base, strlen(base));
+  if (argv[optind+1] && strlen(argv[optind+1]) < strlen(base)) {
+    suffix += strlen(base) - strlen(argv[optind+1]);
+    if (strcmp(suffix, argv[optind+1]) == 0) base[strlen(suffix)+1] = 0;
+  }
+
+  printf("%s\n", base);
   return 0;
 }
