@@ -161,7 +161,7 @@ all:
 	#$(CC) $(CFLAGS) -o bin/unexpand src/unexpand.c
 	#$(CC) $(CFLAGS) -o bin/unget src/unget.c
 	#$(CC) $(CFLAGS) -o bin/uniq src/uniq.c
-	#$(CC) $(CFLAGS) -o bin/unlink src/unlink.c
+	$(CC) $(CFLAGS) -o bin/unlink src/unlink.c
 	#$(CC) $(CFLAGS) -o bin/unset src/unset.c
 	#$(CC) $(CFLAGS) -o bin/uucp src/uucp.c
 	#$(CC) $(CFLAGS) -o bin/uudecode src/uudecode.c

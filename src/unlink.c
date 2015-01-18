@@ -1,5 +1,5 @@
 /*
- *  link.c
+ *  unlink.c
  *  This file is part of posixutils.
  *
  *  Copyright (C) 2015 izabera
@@ -25,24 +25,24 @@
 #include <getopt.h>
 #include <string.h>
 
-/* link */
+/* unlink */
 
 int main (int argc, char *argv[]) {
   int opt, ret;
   while ((opt = getopt(argc, argv, "")) != -1) {
     switch (opt) {
       default:
-        fprintf(stderr, "Usage: %s file1 file2\n", argv[0]);
+        fprintf(stderr, "Usage: %s file\n", argv[0]);
         exit(EXIT_FAILURE);
     }
   }
 
-  if (argc - optind != 2) {
-    fprintf(stderr, "Usage: %s file1 file2\n", argv[0]);
+  if (argc - optind != 1) {
+    fprintf(stderr, "Usage: %s file\n", argv[0]);
     exit(EXIT_FAILURE);
   }
 
-  ret = link(argv[optind], argv[optind+1]);
+  ret = unlink(argv[optind]);
   if (ret != 0) {
     fprintf(stderr, "%s: Error %d: %s\n", argv[0], errno, strerror(errno));
     exit(EXIT_FAILURE);
